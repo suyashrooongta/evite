@@ -23,12 +23,10 @@ interface MonthlyPhoto {
 }
 
 const baseImageUrl =
-  'https://github.com/suyashrooongta/birthday-invite-photos/blob/main/{number}.jpg?raw=true';
-
-const musicUrl = 'https://github.com/suyashrooongta/birthday-invite-photos/blob/main/invite_music.mp3?raw=true'
+  '/Images/{number}.jpg';
 
 const backgroundImageUrl =
-  'url(https://github.com/suyashrooongta/birthday-invite-photos/blob/main/1742627088300.jpg?raw=true)';
+  'url(/Images/1742627088300.jpg)';
 
 const monthlyPhotos: MonthlyPhoto[] = [
   {
@@ -46,23 +44,6 @@ const monthlyPhotos: MonthlyPhoto[] = [
   { month: 10, imageUrl: baseImageUrl.replace('{number}', '10') },
   { month: 11, imageUrl: baseImageUrl.replace('{number}', '11') },
 ];
-
-const slideVariants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? 1000 : -1000,
-    opacity: 0,
-  }),
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => ({
-    zIndex: 0,
-    x: direction < 0 ? 1000 : -1000,
-    opacity: 0,
-  }),
-};
 
 const TransitionSlide = ({ month }: { month: number }) => (
   <motion.div
